@@ -1,0 +1,116 @@
+{
+    "estates": [
+        {
+            "id": 1,
+            "estate_title": "Spacious Family Home in Dhanmondi",
+            "segment_name": "Single-Family Home",
+            "description": "This spacious single-family home in the heart of Dhanmondi offers comfort and tranquility. With multiple bedrooms, a large backyard, and modern amenities, it's perfect for families.",
+            "price": "BDT 3,50,00,000",
+            "status": "Sale",
+            "area": "2800 sq ft",
+            "location": "Dhanmondi, Dhaka",
+            "facilities": [
+                "Backyard",
+                "Garage",
+                "Home Office"
+            ],
+            "image": "https://i.postimg.cc/MHbhy7Nx/ii1.avif"
+        },
+        {
+            "id": 2,
+            "estate_title": "Cozy Townhouse in Uttara",
+            "segment_name": "Townhouse",
+            "description": "Discover comfort and convenience in this charming townhouse located in a vibrant urban neighborhood. With its compact design and modern features, it's an ideal choice for urban dwellers.",
+            "price": "BDT 2,50,00,000",
+            "status": "Sale",
+            "area": "1800 sq ft",
+            "location": "Uttara, Dhaka",
+            "facilities": [
+                "Community Playground",
+                "Parking Space",
+                "Balcony"
+            ],
+            "image": "https://i.postimg.cc/Hsrw8Yyv/22.webp"
+        },
+        {
+            "id": 3,
+            "estate_title": "Modern Apartment in Gulshan",
+            "segment_name": "Apartment",
+            "description": "Live in style with this modern apartment located in the upscale neighborhood of Gulshan. With its sleek design, upscale amenities, and convenient location, it offers the ultimate urban living experience.",
+            "price": "BDT 2,00,00,000",
+            "status": "Sale",
+            "area": "1200 sq ft",
+            "location": "Gulshan, Dhaka",
+            "facilities": [
+                "Fitness Center",
+                "Swimming Pool",
+                "24/7 Security"
+            ],
+            "image": "https://i.postimg.cc/Hn72QdNg/i3.avif"
+        },
+        {
+            "id": 4,
+            "estate_title": "Student Housing Near BUET Campus",
+            "segment_name": "Student Housing",
+            "description": "Ideal for students, this student housing complex is conveniently located near the BUET campus. With furnished rooms, study areas, and recreational facilities, it provides a comfortable living environment for students.",
+            "price": "BDT 8,000/month (per room)",
+            "status": "Rent",
+            "area": "600 sq ft (per room)",
+            "location": "BUET Area, Dhaka",
+            "facilities": [
+                "Study Room",
+                "Common Area",
+                "Laundry Facilities"
+            ],
+            "image": "https://i.postimg.cc/tTsfM0cr/i4.jpg"
+        },
+        {
+            "id": 5,
+            "estate_title": "Senior Living Community in Mirpur",
+            "segment_name": "Senior Living Community",
+            "description": "This senior living community offers a supportive environment for seniors with various care needs. With on-site medical facilities, recreational activities, and communal spaces, it promotes a fulfilling lifestyle for seniors.",
+            "price": "BDT 4,00,000/month",
+            "status": "Rent",
+            "area": "1500 sq ft",
+            "location": "Mirpur, Dhaka",
+            "facilities": [
+                "Medical Care",
+                "Recreation Room",
+                "Garden Area"
+            ],
+            "image": "https://i.postimg.cc/Twm1gPxG/photo-1561068069-cc2410d58f7c.avif"
+        },
+        {
+            "id": 6,
+            "estate_title": "Scenic Vacation Rental in Cox's Bazar",
+            "segment_name": "Vacation Rental",
+            "description": "Escape to this scenic vacation rental located in Cox's Bazar. With stunning ocean views, private beach access, and modern amenities, it offers the perfect retreat for a memorable vacation.",
+            "price": "BDT 3,000/night",
+            "status": "Rent",
+            "area": "2000 sq ft",
+            "location": "Cox's Bazar, Chittagong",
+            "facilities": [
+                "Private Beach Access",
+                "Outdoor Patio",
+                "BBQ Area"
+            ],
+            "image": "https://i.postimg.cc/tgp2Lsrv/i6.jpg"
+        },
+        {
+            "id": 7,
+            "estate_title": "Spacious Family Home in Banani",
+            "segment_name": "Single-Family Home",
+            "description": "This spacious single-family home in the heart of Banani offers comfort and tranquility. With multiple bedrooms, a large backyard, and modern amenities, it's perfect for families.",
+            "price": "BDT 4,50,00,000",
+            "status": "Sale",
+            "area": "3200 sq ft",
+            "location": "Banani, Dhaka",
+            "facilities": [
+                "Backyard",
+                "Garage",
+                "Home Office"
+            ],
+            "image": "https://i.postimg.cc/9Xs3sByx/i7.jpg"
+        }
+    ]
+}
