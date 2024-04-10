@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const SingleEstates = ({data}) => {
-    const {image,estate_title,description,price,status,area,location} = data ||{};
+    const {id,image,estate_title,description,price,status,area,location} = data ||{};
     return (
         <div className="border rounded-lg p-4 hover:shadow-lg">
             <div  className="relative">
@@ -20,7 +21,7 @@ const SingleEstates = ({data}) => {
                 </div>
                 
             </div>
-             <button className="btn g-bg text-center ">View details</button>
+             <Link className="btn g-bg text-center " to={`/${id}`}>View details</Link>
         </div>
     );
 };
