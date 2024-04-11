@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SingleEstates = ({data}) => {
     const {id,image,estate_title,description,price,status,area,location} = data ||{};
     return (
-        <div className="border rounded-lg p-4 hover:shadow-lg">
+        <div className="border rounded-lg p-4 hover:shadow-lg" data-aos="fade-up" data-aos-duration='500'>
             <div  className="relative">
                 <img className="rounded-lg h-[300px] w-full" src={image} alt="123" />
                 <p className="absolute top-2 right-0 g-bg rounded-l-xl px-4 py-2">{status}</p>

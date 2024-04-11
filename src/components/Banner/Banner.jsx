@@ -4,6 +4,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css';
+
 const data = [
     {
         "image": "https://i.postimg.cc/MHV2pf7k/south-sun-house02.jpg",
@@ -25,8 +26,9 @@ const data = [
 ]
 
 const Banner = () => {
+  
     return (
-        <div className='h-screen container mx-auto relative my-3 md:my-6 rounded-xl'>
+        <div className='h-screen container mx-auto relative my-3 md:mt-6 rounded-xl'>
         <Swiper
            className='h-[85vh] rounded-2xl'
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -37,10 +39,10 @@ const Banner = () => {
             {
                 data.map((slide,index) =>
                     <SwiperSlide key={index} className="  bg-cover bg-center" style={{ backgroundImage: `url(${slide.image})` }}>
-                        <div className=" absolute left-[10%] md:left-[20%] top-[30%] p-6 rounded-xl t-bg  text-center text-black border w-[80%] md:w-[60%] mx-auto ">
-                            <h1 className=" text-3xl md:text-5xl font-bold">{slide.title}</h1>
-                            <p className="mt-4 mb-3">{slide.description}</p>
-                            <button className='btn g-bg z-10 '>Explore Your Dream Home</button>
+                        <div  className=" absolute left-[10%] md:left-[20%] top-[30%] p-6 rounded-xl t-bg  text-center text-black border w-[80%] md:w-[60%] mx-auto "  >
+                            <h1 className=" text-3xl md:text-5xl font-bold" data-aos="fade-right" data-aos-duration='1000'>{slide.title}</h1>
+                            <p className="mt-4 mb-3"data-aos="zoom-in" data-aos-duration='1200'>{slide.description}</p>
+                            <button className='btn g-bg z-10 'data-aos="fade-right" data-aos-duration='1000'>Explore Your Dream Home</button>
                         </div>
                     </SwiperSlide>
 

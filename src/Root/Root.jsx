@@ -6,7 +6,7 @@ import Footer from '../components/Footer/Footer';
 const Root = () => {
     return (
         <div className='poppin'>
-            <div className='h-[76px]'>
+            <div className='h-[82px]'>
               <Navbar></Navbar>
             </div>
             <Outlet></Outlet>

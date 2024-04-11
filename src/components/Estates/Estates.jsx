@@ -5,7 +5,7 @@ import SingleEstates from './SingleEstates';
 const Estates = ({estatesData}) => {
   
     return (
-        <div className="container mx-auto my-12">
+        <div className="container mx-auto mb-8 md:mb-12">
             <Heading title="Our choice of popular real estate"></Heading>
             <div className="grid grid-cols-1 mt-4 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
