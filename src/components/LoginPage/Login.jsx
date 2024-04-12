@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Heading from '../CommonCmpnt/Heading';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
+    const {signInUser} = useContext(AuthContext);
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -23,11 +29,24 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        const {email,password} = formData;
+        signInUser(email,password)
+        .then((userCredential) => {
+            
+            const user = userCredential.user;
+            if(user){
+             alert("login successfull!")
+            }
+            e.target.reset();
+            navigate('/');
+          })
+         .catch(error=> alert(error.message))
+
     };
 
     return (
-        <div className="g-bg min-h-[90vh] flex items-center justify-center">
+        <div className="g-bg min-h-[90vh] flex flex-col items-center justify-center">
+             <Heading title="Log in With Email and Password!"></Heading>
             <div className=" bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
                 <h2 className="text-3xl font-semibold text-center g-color mb-6">Login</h2>
                 <form onSubmit={handleSubmit}>
@@ -70,7 +89,7 @@ const Login = () => {
                     >
                         Login
                     </button>
-                    <p className='text-black text-sm py-2'>Don't have any account? please register</p>
+                    <p className='text-gray-700 text-sm py-2 '>Don't have any account? please <Link className='underline text-blue-600' to="/register">register</Link> </p>
                     <div className="text-black flex text-3xl items-center justify-center gap-2 pt-2 border-t-2 my-6">
                         <FcGoogle /> 
                          <p className='text-lg font-bold'>or</p>

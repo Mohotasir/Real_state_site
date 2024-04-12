@@ -1,11 +1,25 @@
 
+import { useContext } from "react";
 import { FaRegBuilding } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+    const {user,logOut} = useContext(AuthContext)
+    const handleSignOut =()=>{
+        logOut()
+         .then(alert("signout"))
+         .catch(error=>alert(error.message))
+    }
     const navList = <>
          <li><NavLink to="/">Home</NavLink> </li>
          <li><NavLink to="/contact">Contact</NavLink> </li>
+         <li><NavLink to="/blog">Blog</NavLink> </li>
+         {
+            user &&<>
+              <li><NavLink to="/updateProfile">Update profile</NavLink> </li>
+            </>
+         }
          
     </>
     return (
@@ -32,7 +46,16 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn  g-bg" to="/login">Log in</Link>
+                {
+                    user ? <>
+                      <p>{user.email}</p>
+                      <button onClick={handleSignOut} className="btn  g-bg" to="/login">Sign Out</button>
+
+                    </>
+                    : 
+                    <Link className="btn  g-bg" to="/login">Log in</Link>
+                }
+                
             </div>
         </div>
     );
