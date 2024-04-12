@@ -48,7 +48,7 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                      <p>{user.email}</p>
+                      <img className= {`w-[40px] h-[40px] rounded-full hover:${console.log(user.name)}`} src={user.photoURL} alt="" />
                       <button onClick={handleSignOut} className="btn  g-bg" to="/login">Sign Out</button>
 
                     </>
