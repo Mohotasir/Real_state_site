@@ -8,7 +8,7 @@ const Navbar = () => {
     const {user,logOut} = useContext(AuthContext)
     const handleSignOut =()=>{
         logOut()
-         .then(alert("signout"))
+         .then(alert("Sure ? Are you want to sign out"))
          .catch(error=>alert(error.message))
     }
     const navList = <>
@@ -48,8 +48,8 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                      <img className= {`w-[40px] h-[40px] rounded-full hover:${console.log(user.name)}`} src={user.photoURL} alt="" />
-                      <button onClick={handleSignOut} className="btn  g-bg" to="/login">Sign Out</button>
+                      <img className= {`w-[40px] h-[40px] rounded-full mr-2 hover:${(user.email)}`} src={user.photoURL} alt="" />
+                      <button onClick={handleSignOut} className="btn btn-sm py-2 border border-cyan-950" to="/login">Sign Out</button>
 
                     </>
                     : 

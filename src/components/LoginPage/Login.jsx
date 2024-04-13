@@ -3,17 +3,21 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import Heading from '../CommonCmpnt/Heading';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+
+
 const Login = () => {
-    const {signInUser} = useContext(AuthContext);
+    const { signInUser, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
-        name: '',
+        email: '',
         password: ''
     });
+    const [showModal, setShowModal] = useState(false); 
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -26,32 +30,58 @@ const Login = () => {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-
+   
     const handleSubmit = (e) => {
         e.preventDefault();
-        const {email,password} = formData;
-        signInUser(email,password)
-        .then((userCredential) => {
-            
-            const user = userCredential.user;
-            if(user){
-             alert("login successfull!")
-            }
-            e.target.reset();
-            navigate('/');
-          })
-         .catch(error=> alert(error.message))
+        const { email, password } = formData;
+        signInUser(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                if (user) {
+                    setShowModal(true);
+                    setTimeout(() => {
+                        navigate('/');
+                        setShowModal(false);
 
+                    }, 1000);
+
+                }
+                e.target.reset();
+            })
+            .catch(error => {
+                alert("Login Failed!!")
+                console.log(error.message)
+            });
+
+    };
+
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then(()=>{
+                
+                    setShowModal(true);
+                    setTimeout(() => {
+                        navigate('/');
+                        setShowModal(false);
+
+                    }, 1000);
+
+                
+            })
+            .catch(error => {
+                const errMsg = error.message;
+                alert(errMsg);
+            });
     };
 
     return (
         <div className="g-bg min-h-[90vh] flex flex-col items-center justify-center">
-             <Heading title="Log in With Email and Password!"></Heading>
+            <Heading title="Log in With Email and Password!"></Heading>
             <div className=" bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
                 <h2 className="text-3xl font-semibold text-center g-color mb-6">Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label className="block g-color text-sm font-semibold mb-2" htmlFor="name">Email</label>
+                        <label className="block g-color text-sm font-semibold mb-2" htmlFor="email">Email</label>
                         <input
                             type="email"
                             name="email"
@@ -91,12 +121,23 @@ const Login = () => {
                     </button>
                     <p className='text-gray-700 text-sm py-2 '>Don't have any account? please <Link className='underline text-blue-600' to="/register">register</Link> </p>
                     <div className="text-black flex text-3xl items-center justify-center gap-2 pt-2 border-t-2 my-6">
-                        <FcGoogle /> 
-                         <p className='text-lg font-bold'>or</p>
-                        <FaGithub />
+                        <div onClick={handleGoogleLogin} className='hover:bg-gray-200 p-2 cursor-pointer rounded-full'><FcGoogle /> </div>
+                        <p className='text-lg font-bold'>or</p>
+                        <div className='hover:bg-gray-200 p-2 cursor-pointer rounded-full'><FaGithub /></div>
                     </div>
                 </form>
             </div>
+            {showModal && (
+                <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-white flex flex-col items-center justify-center p-5 md:p-12 rounded-lg shadow-lg text-black">
+                    <div className='py-2 text-5xl font-semibold'><IoMdCheckmarkCircleOutline /></div>
+                    <p className="text-2xl g-color font-semibold mb-2">Login Successful!</p>
+                    <p className='text-sm'>You have successfully logged in!</p>
+                </div>
+            </div>
+            )}
+          
+
         </div>
     );
 };

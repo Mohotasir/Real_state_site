@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Heading from '../CommonCmpnt/Heading';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { updateProfile } from 'firebase/auth';
-
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const {createUser} = useContext(AuthContext);
- 
+  const [viewModal, setShowModal] = useState(false); 
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,7 +28,12 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password, userName, photoURL } = formData;
-    
+   
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if(!passwordRegex.test(password)){
+        alert("password must be at least one uppercase,one lowerCase and 6 characters")
+    }
     createUser(email,password)
     .then((userCredential) => {
         const user = userCredential.user;
@@ -36,11 +43,18 @@ const Register = () => {
         });
       })
      .then(result =>{
-        alert("successfull");
+        setShowModal(true);
+        setTimeout(() => {
+            navigate('/');
+            setShowModal(false);
+
+        }, 1000);
+
+    
         e.target.reset();
      })
      .catch(error=>{
-        alert(error.message);
+        console.log(error.message);
      })
      
   };
@@ -114,6 +128,16 @@ const Register = () => {
           <p className="text-gray-700 text-sm">Already have an account? <Link to="/login" className="text-cyan-500">Login here</Link></p>
         </div>
       </div>
+      { 
+         viewModal && (
+                <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-white flex flex-col items-center justify-center p-5 md:p-12 rounded-lg shadow-lg text-black">
+                    <div className='py-2 text-5xl font-semibold'><IoMdCheckmarkCircleOutline /></div>
+                    <p className="text-2xl g-color font-semibold mb-2">Congratulations!!</p>
+                    <p className='text-sm'>You have successfully registered</p>
+                </div>
+            </div>
+            )}
     </div>
   );
 };
