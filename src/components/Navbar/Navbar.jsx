@@ -71,9 +71,9 @@ const Navbar = () => {
                             <div tabIndex={0} role="button" className="text-2xl m-1 rounded-full p-2 hover:bg-gray-200" onClick={toggleDropdown}><IoIosArrowDropdown /></div>
                             {showDropdown && (
                                 <ul tabIndex={0} className="absolute  right-0 dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><NavLink to="/userProfile">User Profile</NavLink></li>
-                                    <li><NavLink to="/updateProfile">Update Profile</NavLink></li>
-                                    <button onClick={handleSignOut} className="btn btn-sm py-2 border border-cyan-950" to="/login">Sign Out</button>
+                                    <li className=""><NavLink to="/userProfile">User Profile</NavLink></li>
+                                    <li className="py-2"><NavLink to="/updateProfile">Update Profile</NavLink></li>
+                                    <button onClick={handleSignOut} className="btn  btn-sm py-2 border border-cyan-950" to="/login">Sign Out</button>
 
                                 </ul>
                             )}

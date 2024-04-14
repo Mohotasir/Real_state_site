@@ -17,6 +17,7 @@ import Register from './components/Register/Register.jsx';
 import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import UserProfile from './components/UserProfile/UserProfile.jsx';
+import UpdateProfile from './components/UserProfile/UpdateProfile.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/updateProfile",
-        element:<h1>your porfile</h1>
+        element: <UpdateProfile></UpdateProfile>
       },
       {
         path:"/blog",
