@@ -27,7 +27,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password, userName, photoURL } = formData;
+    const { email, password, name, photoURL } = formData;
    
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -62,7 +62,7 @@ const Register = () => {
   return (
     <div className="min-h-screen g-bg flex flex-col items-center justify-center">
         <Heading title="Please Register and join with us!!"></Heading>
-      <div className="bg-white p-8 mb-24 rounded-lg shadow-lg w-full max-w-md">
+      <div className="bg-white p-8 mb-24 rounded-lg shadow-lg w-full max-w-md"data-aos="zoom-in" data-aos-duration='1000'>
         <h2 className="text-3xl font-semibold text-center g-color mb-6">Register</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

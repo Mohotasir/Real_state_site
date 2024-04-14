@@ -21,10 +21,10 @@ const EstateDetails = () => {
                     </div>
                     <h1 className="text-4xl font-semibold g-color py-3">{estate_title}</h1>
                     <p className="text-md font-light text-gray-500">{description}</p>
-                    <div className="flex text-xl justify-between py-4 font-semibold">
-                        <h1>{price}</h1>
+                    <div className="flex text-lg justify-between py-4 font-semibold">
+                        <h1 className='border h-bg px-3  rounded-full py-2' >Price: {price}</h1>
                         <div>
-                            <h2>{area}</h2>
+                            <h2 className='border g-bg px-4  rounded-full py-2'>{area}</h2>
                         </div>
 
                     </div>

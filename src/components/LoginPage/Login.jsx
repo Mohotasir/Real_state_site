@@ -77,7 +77,7 @@ const Login = () => {
     return (
         <div className="g-bg min-h-[90vh] flex flex-col items-center justify-center">
             <Heading title="Log in With Email and Password!"></Heading>
-            <div className=" bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <div className=" bg-white p-8 rounded-lg shadow-lg w-full max-w-md"data-aos="zoom-in" data-aos-duration='1000'>
                 <h2 className="text-3xl font-semibold text-center g-color mb-6">Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">

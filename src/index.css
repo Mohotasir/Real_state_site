@@ -15,8 +15,10 @@
   color: white;
 
 }
+
 .h-bg{
-  background-image: linear-gradient(to right, #84c7a8  0% , #080f5a 100%);
+  background-image: linear-gradient(to right, #5e5e68 0%, #070a29 100%);
+  color: white;
 }
 
 .poppin{
