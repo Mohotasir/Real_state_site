@@ -1,10 +1,10 @@
-import { useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import Heading from '../CommonCmpnt/Heading';
 const EstateDetails = () => {
     const allestates = useLoaderData();
     const { id } = useParams();
     const estate = allestates.estates.find((b) => b.id == id)
-    const { image, estate_title, description, price, status, area, location } = estate || {};
+    const { image, estate_title, description, facilities, price, status, area, location } = estate || {};
     return (
         <>
             <Heading title="See Details About Your Choice"></Heading>
@@ -27,6 +27,17 @@ const EstateDetails = () => {
                             <h2 className='border g-bg px-4  rounded-full py-2'>{area}</h2>
                         </div>
 
+                    </div>
+                    <h1 className='g-color text-xl py-3 '>Facilities:</h1>
+                    <div className='flex flex-col md:flex-row justify-around border-b-2 py-4 border-gray-200'>
+                        {
+                            facilities.map(f => <p className='py-2 px-4 bg-gray-300 border rounded-full'>{f}</p>)
+                        }
+                    </div>
+                    <div className='py-4 md:py-8 text-center text-gray-500'>
+                       <h1>choose this ? Feel free to <Link className='text-purple-600' to="/contact">CONTACT</Link> </h1>
+                       <h1>Or</h1>
+                       <h1>Choice Another <Link className='text-purple-600' to="/">OPTION</Link></h1>
                     </div>
                 </div>
 
