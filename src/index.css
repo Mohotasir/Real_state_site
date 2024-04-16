@@ -21,6 +21,9 @@
   color: white;
 }
 
+.l-bg{
+  background-image: linear-gradient(to right, #b1f3df 0%, #dfdfe2 100%);
+}
 .poppin{
   font-family: "Poppins", sans-serif;
 }

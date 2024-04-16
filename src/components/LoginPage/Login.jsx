@@ -10,7 +10,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 const Login = () => {
-    const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    const { signInUser, signInWithGoogle,signInWithGithub } = useContext(AuthContext);
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
@@ -43,7 +43,7 @@ const Login = () => {
                         navigate('/');
                         setShowModal(false);
 
-                    }, 1000);
+                    }, 1500);
 
                 }
                 e.target.reset();
@@ -73,11 +73,31 @@ const Login = () => {
                 alert(errMsg);
             });
     };
+    const handleGitHubLogin = () =>{
+        signInWithGithub()
+         .then(()=>{
+                
+            setShowModal(true);
+            setTimeout(() => {
+                navigate('/');
+                setShowModal(false);
+
+            }, 1000);
+
+        
+    })
+    .catch(error => {
+        const errMsg = error.message;
+        alert(errMsg);
+    });
+       
+
+    }
 
     return (
-        <div className="g-bg min-h-[90vh] flex flex-col items-center justify-center">
+        <div className="l-bg min-h-[90vh] flex flex-col items-center justify-center">
             <Heading title="Log in With Email and Password!"></Heading>
-            <div className=" bg-white p-8 rounded-lg shadow-lg w-full max-w-md"data-aos="zoom-in" data-aos-duration='1000'>
+            <div className=" bg-white p-8 rounded-lg mb-8 shadow-lg w-full max-w-md"data-aos="zoom-in" data-aos-duration='1000'>
                 <h2 className="text-3xl font-semibold text-center g-color mb-6">Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
@@ -123,7 +143,7 @@ const Login = () => {
                     <div className="text-black flex text-3xl items-center justify-center gap-2 pt-2 border-t-2 my-6">
                         <div onClick={handleGoogleLogin} className='hover:bg-gray-200 p-2 cursor-pointer rounded-full'><FcGoogle /> </div>
                         <p className='text-lg font-bold'>or</p>
-                        <div className='hover:bg-gray-200 p-2 cursor-pointer rounded-full'><FaGithub /></div>
+                        <div onClick={handleGitHubLogin} className='hover:bg-gray-200 p-2 cursor-pointer rounded-full'><FaGithub /></div>
                     </div>
                 </form>
             </div>

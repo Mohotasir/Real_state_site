@@ -9,7 +9,7 @@ const SingleEstates = ({ data }) => {
                 <div className="relative">
                     <img className="rounded-lg h-[300px] w-full" src={image} alt="123" />
                     <p className="absolute top-2 right-0 g-bg rounded-l-xl px-4 py-2">{status}</p>
-                    <p className="wishlist absolute hidden bg-white p-4 rounded-md top-[50%] left-[30%]">Add to wish list</p>
+                    <p className="wishlist btn btn-sm outline-none border-none absolute text-sm  hidden bg-cyan-100 cursor-pointer   top-[0%] left-[0%]">Add to wish list</p>
                     
                 </div>
                 <div>

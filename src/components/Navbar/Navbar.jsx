@@ -3,17 +3,23 @@ import { FaRegBuilding } from "react-icons/fa";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useNavigate } from 'react-router-dom';
 import { useRef } from "react";
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [showDropdown, setShowDropdown] = useState(false);
     const dropdownRef = useRef(null);
 
     const handleSignOut = () => {
         logOut()
-            .then(alert("Sure? Are you sure you want to sign out?"))
+            .then(
+                ()=>{
+                    navigate('/'); 
+                }
+            )
             .catch(error => alert(error.message));
     };
     useEffect(() => {
